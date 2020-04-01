@@ -20,6 +20,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - name: List output files
+      run: ls
+
     - name: Deploy
       run: |
         npm install
@@ -29,3 +32,6 @@ jobs:
         FTP_USER: ${{ secrets.FTP_USER }}
         FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         FTP_HOST: ${{ secrets.FTP_HOST }}
+        LOCAL_DIR: dist                           
+        REMOTE_DIR: /       
+        ARGS: --delete
