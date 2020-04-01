@@ -33,5 +33,5 @@ jobs:
         FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         FTP_HOST: ${{ secrets.FTP_HOST }}
         LOCAL_DIR: dist                           
-        REMOTE_DIR: home
+        REMOTE_DIR: ${{ secrets.REMOTE_DIR }}
         ARGS: --delete
