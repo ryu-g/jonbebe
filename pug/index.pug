@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+html(lang="ja")
+head
+  meta(charset="UTF-8")
+  meta(name="description" content="XXXXXXXXX")
+
+  title Document
+  script(src="../script/index.js")
+body
+  #Space
+    img.earth(src="../images/white-earth.svg" width="90px" height="auto")
+    - for (var i = 0; i < 44; i++)
+      img.star(src="../images/star.svg")
+
+  section
+    h4 コンテンツハッシュを無効にする
+    p デフォルト:コンテンツハッシュは有効
+    p 利用可能: build
+    pre parcel build entry.js --no-content-hash
+  - for (var i = 0; i < 3; i++)
+    section
+      h4 #{i} 番目のアイテムの見出しだよ
+      p this is item of number #{i}

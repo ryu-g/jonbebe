@@ -1,0 +1,24 @@
+{
+  "name": "jonbebe",
+  "version": "1.0.0",
+  "description": "content sweep pool",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel ./pug/index.pug --open",
+    "build": "parcel build pug/index.pug"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryu-g/jonbebe.git"
+  },
+  "author": "ryu-g",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryu-g/jonbebe/issues"
+  },
+  "homepage": "https://github.com/ryu-g/jonbebe#readme",
+  "dependencies": {
+    "pug": "^2.0.4",
+    "sass": "^1.26.3"
+  }
+}
