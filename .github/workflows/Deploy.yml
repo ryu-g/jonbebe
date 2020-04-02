@@ -13,7 +13,7 @@ jobs:
         node-version: [12.x]
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@master
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
@@ -27,12 +27,11 @@ jobs:
         npm run build
 
     - name: FTP-Deploy-Action
-      uses: SamKirkland/FTP-Deploy-Action@2.0.0      
+      uses: SamKirkland/FTP-Deploy-Action@3.0.0
       env:
         CI: true
         FTP_USER: ${{ secrets.FTP_USER }}
         FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         FTP_HOST: ${{ secrets.FTP_HOST }}
-        LOCAL_DIR: publish                           
-        REMOTE_DIR: ${{ secrets.REMOTE_DIR }}
+        LOCAL_DIR: publish
         ARGS: --delete
