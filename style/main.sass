@@ -27,12 +27,12 @@ section
   height: 100vh
   text-align: center
 
-img.earth
+img#earth
   user-select: none
   position: absolute
   top: 45% 
   left: 45%
-  animation: rotateEarth 7s linear infinite
+  animation: rotateEarth 12s linear infinite
 
 img.star
   user-select: none
@@ -45,8 +45,11 @@ img.star
   0%
     transform: rotate(0deg)
   
-  100%
+  50%
     transform: rotate(360deg)
+  
+  100%
+    transform: rotate(720deg)
 
 @keyframes gritter
   0%

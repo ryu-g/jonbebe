@@ -1,6 +1,8 @@
 import "../style/main.sass"
 
-window.onload = () =>{
+let rotateDurationOfEarth = 7
+
+window.onload = () => {
   const stars = document.getElementsByClassName("star")
   for(let i = 0 ; i < stars.length ; i++ ){
     stars[i].style.top = GetRandomInt(window.innerHeight) + "px"
@@ -11,4 +13,13 @@ window.onload = () =>{
 
 const GetRandomInt = (max) => {
   return Math.floor(Math.random() * Math.floor(max))+1
+}
+
+let earth = document.getElementById("earth")
+console.log(earth)
+earth.addEventListener("click", addSpeed)
+
+function addSpeed(){
+  rotateDurationOfEarth *= 0.8
+  earth.style.animation = `rotateEarth ${rotateDurationOfEarth}s linear infinite`
 }
