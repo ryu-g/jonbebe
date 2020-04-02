@@ -1,37 +1,33 @@
-name: Deploy
-
 on:
-  push:
-    branches:
-    - master
-
+  push:                 # プッシュした時に実行
+    branches:           # ブランチを指定
+      - master
+name: Build and Deploy  # アクションの名称
 jobs:
   FTP-Deploy-Action:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.x]
-
+    name: FTP-Deploy-Action     # JOBの名前
+    runs-on: ubuntu-latest      # 仮想環境の種類を指定
     steps:
-    - uses: actions/checkout@master
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: List output files
-      run: ls
+      - uses: actions/checkout@master   # リポジトリのデータを仮想環境にチェックアウトしてくるアクションを実行する
 
-    - name: Build Project
-      run: |
-        npm install
-        npm run build
+      - name: Use Node.js 12.13
+        uses: actions/setup-node@v1     # Node.jsの環境をセットアップする
+        with:
+          node-version: '12.13'         # v12.13のバージョンのNode環境を使用する
 
-    - name: FTP-Deploy-Action
-      uses: SamKirkland/FTP-Deploy-Action@3.0.0
-      env:
-        CI: true
-        FTP_USER: ${{ secrets.FTP_USER }}
-        FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-        FTP_HOST: ${{ secrets.FTP_HOST }}
-        LOCAL_DIR: publish
-        ARGS: --delete
+      - name: Build Project
+        run: |
+          npm install                     # npm install のコマンドを実行する
+          npm run generate --if-present   # npm run generate のコマンドを実行する
+
+      - name: List output files
+        run: ls
+
+      - name: FTP-Deploy-Action
+        uses: SamKirkland/FTP-Deploy-Action@2.0.0   # FTPを使ってサーバーにDeployするアクションを実行
+        env:                                        # FTP環境の設定を行う
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}     # FTPサーバーのURLを設定
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }} # FTPのユーザー名を設定
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }} # FTPのパスワードを設定
+          LOCAL_DIR: publish                        # どのディレクトリのデータをアップロードするか
+          ARGS: --delete
