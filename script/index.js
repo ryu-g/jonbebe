@@ -16,7 +16,6 @@ const GetRandomInt = (max) => {
 }
 
 let earth = document.getElementById("earth")
-console.log(earth)
 earth.addEventListener("click", addSpeed)
 
 function addSpeed(){
