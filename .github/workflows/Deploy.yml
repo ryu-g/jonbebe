@@ -17,14 +17,14 @@ jobs:
 
       - name: Build Project
         run: |
-          npm install                     # npm install のコマンドを実行する
-          npm run generate --if-present   # npm run generate のコマンドを実行する
+          npm install
+          npm run build
 
       - name: List output files
         run: ls
 
       - name: FTP-Deploy-Action
-        uses: SamKirkland/FTP-Deploy-Action@2.0.0   # FTPを使ってサーバーにDeployするアクションを実行
+        uses: SamKirkland/FTP-Deploy-Action@3.0.0   # FTPを使ってサーバーにDeployするアクションを実行
         env:                                        # FTP環境の設定を行う
           FTP_SERVER: ${{ secrets.FTP_SERVER }}     # FTPサーバーのURLを設定
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }} # FTPのユーザー名を設定
