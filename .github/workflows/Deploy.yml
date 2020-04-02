@@ -6,10 +6,8 @@ on:
     - master
 
 jobs:
-  build:
-
+  FTP-Deploy-Action:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [12.x]
@@ -23,15 +21,15 @@ jobs:
     - name: List output files
       run: ls
 
-    - name: Deploy
+    - name: Build Project
       run: |
         npm install
-        npm run deploy
+        npm run build
       env:
         CI: true
         FTP_USER: ${{ secrets.FTP_USER }}
         FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         FTP_HOST: ${{ secrets.FTP_HOST }}
-        LOCAL_DIR: dist                           
+        LOCAL_DIR: publish                           
         REMOTE_DIR: ${{ secrets.REMOTE_DIR }}
         ARGS: --delete
