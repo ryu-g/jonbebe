@@ -30,4 +30,3 @@ jobs:
           ftp-username: ${{ secrets.FTP_USER }} # FTPのユーザー名を設定
           ftp-password: ${{ secrets.FTP_PASSWORD }} # FTPのパスワードを設定
           local-dir	: publish                        # どのディレクトリのデータをアップロードするか
-          git-ftp-args: --insecure # if your certificate is setup correctly this can be removed
