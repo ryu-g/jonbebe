@@ -25,9 +25,9 @@ jobs:
 
       - name: FTP-Deploy-Action
         uses: SamKirkland/FTP-Deploy-Action@3.0.0   # FTPを使ってサーバーにDeployするアクションを実行
-        env:                                        # FTP環境の設定を行う
-          FTP_SERVER: ${{ secrets.FTP_HOST }}     # FTPサーバーのURLを設定
-          FTP_USERNAME: ${{ secrets.FTP_USER }} # FTPのユーザー名を設定
-          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }} # FTPのパスワードを設定
-          LOCAL_DIR: publish                        # どのディレクトリのデータをアップロードするか
-          ARGS: --delete
+        with:                                        # FTP環境の設定を行う
+          ftp-server: ${{ secrets.FTP_HOST }}     # FTPサーバーのURLを設定
+          ftp-username: ${{ secrets.FTP_USER }} # FTPのユーザー名を設定
+          ftp-password: ${{ secrets.FTP_PASSWORD }} # FTPのパスワードを設定
+          local-dir	: publish                        # どのディレクトリのデータをアップロードするか
+          git-ftp-args: --insecure # if your certificate is setup correctly this can be removed
