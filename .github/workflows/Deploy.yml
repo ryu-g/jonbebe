@@ -24,7 +24,6 @@ jobs:
           npm run deploy
         env:                       # FTP環境の設定を行う
           CI: true
-          ftp-server: ${{ secrets.FTP_HOST }}     # FTPサーバーのURLを設定
-          ftp-username: ${{ secrets.FTP_USER }} # FTPのユーザー名を設定
-          ftp-password: ${{ secrets.FTP_PASSWORD }} # FTPのパスワードを設定
-          local-dir	: publish                        # どのディレクトリのデータをアップロードするか
+          FTP_HOST: ${{ secrets.FTP_HOST }}     # FTPサーバーのURLを設定
+          FTP_USER: ${{ secrets.FTP_USER }} # FTPのユーザー名を設定
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }} # FTPのパスワードを設定
