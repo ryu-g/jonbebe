@@ -17,6 +17,7 @@ const config = {
 
 console.log(config.user.length)
 console.log(config.host.length)
+console.log(config.password.length)
 
 ftpDeploy.deploy(config)
   .then((res) => {
