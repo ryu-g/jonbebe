@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "parcel ./pug/index.pug --open",
     "build": "parcel build ./pug/index.pug --no-cache --no-source-maps --out-dir publish/top --public-url ./top --target browser && mv publish/top/index.html publish/index.html",
-    "deploy": "npm run build | node deploy"
+    "deploy": "npm run build node deploy"
   },
   "repository": {
     "type": "git",
