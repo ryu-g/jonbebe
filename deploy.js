@@ -7,17 +7,17 @@ const config = {
   user: process.env.FTP_USER,
   password: process.env.FTP_PASSWORD,
   host: process.env.FTP_HOST,
-  localRoot: __dirname + '/public',
-  remoteRoot: './',
-  include: ['**/*.*'],
+  localRoot: __dirname + '/publish',
+  remoteRoot: '/',
+  include: ['**/*.*','.htaccess'],
   exclude: ['.DS_Store'],
   deleteRemote: true,
-  forcePasv: true
+  forcePasv: true   // I don't know, but sometimes I have to go somewhere
 }
 
 ftpDeploy.deploy(config)
   .then((res) => {
-    console.log(`Deploy Complete ${git.short()}.`)
+    console.log(`Deploy Complete ${git.short()} death.`)
   })
   .catch((err) => {
     throw err
