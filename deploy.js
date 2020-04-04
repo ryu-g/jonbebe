@@ -15,8 +15,8 @@ const config = {
   forcePasv: true   // I don't know, but sometimes I have to go somewhere
 }
 
-console.log(config.user)
-console.log(config.host)
+console.log(config.user.length)
+console.log(config.host.length)
 
 ftpDeploy.deploy(config)
   .then((res) => {
