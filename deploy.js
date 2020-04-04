@@ -15,7 +15,7 @@ const config = {
   include: ['**/*.*','.htaccess'],
   exclude: ['.DS_Store'],
   deleteRemote: true,
-  forcePasv: false   // I don't know, but sometimes I have to go somewhere
+  forcePasv: true   // I don't know, but sometimes I have to go somewhere
 }
 
 ftpDeploy.deploy(config)
@@ -28,4 +28,8 @@ ftpDeploy.deploy(config)
 
 ftpDeploy.on('uploaded', (data) => {
   console.log(`uploded ${data.transferredFileCount}: ${data.filename}`) // same data as uploading event
+})
+
+process.on('unhandledRejection', (reason, p) => {
+  console.log('Unhandled Rejection at:', p, 'reason:', reason);
 })
