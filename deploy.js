@@ -15,25 +15,8 @@ const config = {
   include: ['**/*.*','.htaccess'],
   exclude: ['.DS_Store'],
   deleteRemote: true,
-  forcePasv: true   // I don't know, but sometimes I have to go somewhere
+  forcePasv: false   // I don't know, but sometimes I have to go somewhere
 }
-
-for(let i = 0 ; i < config.user.length; i ++){
-  console.log(config.user[i]);
-  _user = _user + config.user[i]
-}
-for(i = 0 ; i < config.host.length; i ++){
-  console.log(config.host[i]);
-  _host = _host + config.host[i]
-}
-for(i = 0 ; i < config.password.length; i ++){
-  console.log(config.password[i]);
-  _password = _password + config.password[i]
-}
-
-console.log(_user+"@")
-console.log(_host+"@")
-console.log(_password+"@")
 
 ftpDeploy.deploy(config)
   .then((res) => {
