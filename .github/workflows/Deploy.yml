@@ -15,17 +15,15 @@ jobs:
         with:
           node-version: '12.13'         # v12.13のバージョンのNode環境を使用する
 
-      - name: Build Project
-        run: |
-          npm install
-          npm run build
-
       - name: List output files
         run: ls
 
-      - name: FTP-Deploy-Action
-        uses: SamKirkland/FTP-Deploy-Action@3.0.0   # FTPを使ってサーバーにDeployするアクションを実行
-        with:                                        # FTP環境の設定を行う
+      - name: Deploy
+        run: |
+          npm install
+          npm run deploy
+        env:                       # FTP環境の設定を行う
+          CI: true
           ftp-server: ${{ secrets.FTP_HOST }}     # FTPサーバーのURLを設定
           ftp-username: ${{ secrets.FTP_USER }} # FTPのユーザー名を設定
           ftp-password: ${{ secrets.FTP_PASSWORD }} # FTPのパスワードを設定
