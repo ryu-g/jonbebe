@@ -15,6 +15,9 @@ const config = {
   forcePasv: true   // I don't know, but sometimes I have to go somewhere
 }
 
+console.log(config.user)
+console.log(config.host)
+
 ftpDeploy.deploy(config)
   .then((res) => {
     console.log(`Deploy Complete ${git.short()} death.`)
