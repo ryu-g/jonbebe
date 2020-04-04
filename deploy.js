@@ -2,6 +2,9 @@ const FtpDeploy = require('ftp-deploy')
 const ftpDeploy = new FtpDeploy()
 const git = require('git-rev-sync')
 require('dotenv').config()
+let _user = ""
+let _host = ""
+let _password = ""
 
 const config = {
   user: process.env.FTP_USER,
@@ -15,9 +18,19 @@ const config = {
   forcePasv: true   // I don't know, but sometimes I have to go somewhere
 }
 
-console.log(config.user)
-console.log(config.host)
-console.log(config.password)
+for(let i = 0 ; i < config.user.length; i ++){
+  _user = _user + config.user[i]
+}
+for(i = 0 ; i < config.host.length; i ++){
+  _host = _host + config.host[i]
+}
+for(i = 0 ; i < config.password.length; i ++){
+  _password = _password + config.password[i]
+}
+
+console.log(_user)
+console.log(_host)
+console.log(_password)
 
 ftpDeploy.deploy(config)
   .then((res) => {
