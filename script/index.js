@@ -7,7 +7,7 @@ window.onload = () => {
   for(let i = 0 ; i < stars.length ; i++ ){
     stars[i].style.top = GetRandomInt(window.innerHeight) + "px"
     stars[i].style.left = GetRandomInt(window.innerWidth) + "px"
-    stars[i].style.animation = `gritter ${GetRandomInt(3)}s linear infinite`
+    stars[i].style.animation = `gritter ${GetRandomInt(4)}s linear infinite`
   }
 }
 
