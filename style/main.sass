@@ -21,18 +21,26 @@ section
 
 // parts -----
 #Space
-  position: relative
+  position: fixed
   display: block
   width: 100vw
   height: 100vh
   text-align: center
+  section
+    // visibility: hidden
+    height: 2000px
+
+.brankForScroll
+  display: block
+  height: 24000px
+  // visibility: hidden
 
 img#earth
   user-select: none
   position: absolute
   top: 45% 
   left: 45%
-  animation: rotateEarth 12s linear infinite
+  animation: rotate 12s linear infinite
 
 img.star
   user-select: none
@@ -41,7 +49,33 @@ img.star
   height: 8px
   animation: gritter 1s linear infinite
 
-@keyframes rotateEarth
+img.debris
+  position : absolute
+  top: 800px 
+  left: 20px
+  width: 20px
+  height: 20px
+
+img.debrisOval
+  position : absolute
+  width: 20px
+  height: 20px
+
+img.sun
+  position : absolute
+  width: 300px
+  height: 300px
+  top: 2000px
+  animation: rotate 24s linear infinite
+
+img.alien
+  position : absolute
+  width: 20px
+  height: 20px
+  animation: rotate 12s linear infinite
+
+
+@keyframes rotate
   0%
     transform: rotate(0deg)
   
