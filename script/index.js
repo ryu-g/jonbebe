@@ -22,7 +22,7 @@ earth.addEventListener("click", addSpeed)
 
 function addSpeed(){
   rotateDurationOfEarth *= 0.8
-  earth.style.animation = `rotateEarth ${rotateDurationOfEarth}s linear infinite`
+  earth.style.animation = `rotate ${rotateDurationOfEarth}s linear infinite`
 }
 
 window.addEventListener( "scroll", updateDebris)
