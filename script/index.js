@@ -34,14 +34,12 @@ function updateDebris(){
   debri_Oval(scrollY, "sun", 0, 0, 800, 900, 0.1 )
 }
 
-function debri_Oval(scrollY, className, x, y, w, h, _speed){
+function debri_Oval(scrollY, className, x, y, w, h, speed = 1){
   const debris = document.getElementsByClassName(className)
-  let speed = 1
-  if(_speed){speed = _speed}
-  let cos = Math.cos(scrollY * speed)
-  let sin = Math.sin(scrollY * speed)
-  let top = sin * h + y
-  let left = cos * w + x
+  const cos = Math.cos(scrollY * speed)
+  const sin = Math.sin(scrollY * speed)
+  const top = sin * h + y
+  const left = cos * w + x
   for(let i = 0 ; i < debris.length; i ++){
     debris[i].style.top = top + "px"
     debris[i].style.left = left + "px"

@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "parcel ./pug/index.pug --open",
     "build": "parcel build ./pug/index.pug --no-cache --no-source-maps --out-dir publish/top --public-url ./top --target browser && mv publish/top/index.html publish/index.html",
-    "deploy": "npm run build && node deploy"
+    "deploy": "npm run build && node deploy",
+    "lint": "eslint script/index.js --fix"
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,8 @@
     "git-rev-sync": "^2.0.0",
     "parcel-bundler": "^1.12.4",
     "pug": "^2.0.4",
-    "sass": "^1.26.3"
+    "sass": "^1.26.3",
+    "typescript": "^3.8.3"
   },
   "devDependencies": {
     "ftp-deploy": "^2.3.6"

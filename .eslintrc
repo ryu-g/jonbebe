@@ -1,0 +1,20 @@
+{
+    "extends": ["eslint:recommended"],
+    "plugins": [],
+    "parserOptions": {},
+    "env": {"browser": true},
+    "globals": {
+      "alert": false,
+      "document": false,
+      "$": false,
+      "console": false,
+      "style": false
+    },
+    "rules": {
+      "no-extra-semi": "warn",
+      "no-undef": "warn",
+      "quotes": ["warn", "single"],
+      "space-before-blocks": ["warn", { "functions": "always" }],
+
+    }
+}
