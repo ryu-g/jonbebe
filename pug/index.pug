@@ -9,9 +9,13 @@ body
     img#earth(src="../images/white-earth.svg" width="90px" height="auto")
     - for (var i = 0; i < 100; i++)
       img.star(src="../images/star.svg")
+    - console.log(`added ${i}`);
 
     img.debris(src="../images/white-earth.svg" width="90px" height="auto")
     img.sun(src="../images/sun.svg" width="400px" height="auto")
     img.alien(src="../images/alien.svg" width="400px" height="auto")
+    a(href = "#")
+      img.debris(src="../images/white-earth.svg" width="90px" height="auto")
+
   .brankForScroll
 script(src="../script/index.js")

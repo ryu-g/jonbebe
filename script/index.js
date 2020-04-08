@@ -34,7 +34,7 @@ function updateDebris(){
   debri_Oval(scrollY, "sun", 0, 0, 800, 900, 0.1 )
 }
 
-function debri_Oval(scrollY, className, x, y, w, h, speed = 1){
+function debri_Oval(scrollY, className, x, y, w = 400, h = 400, speed = 1){
   const debris = document.getElementsByClassName(className)
   const cos = Math.cos(scrollY * speed)
   const sin = Math.sin(scrollY * speed)
@@ -46,6 +46,7 @@ function debri_Oval(scrollY, className, x, y, w, h, speed = 1){
   }
 }
 
+function clickableDebris(){}
 
 function debri_swing(scrollY, className){
  
