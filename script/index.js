@@ -30,11 +30,11 @@ window.addEventListener( "scroll", updateDebris)
 function updateDebris(){
   const scrollY = window.pageYOffset / 1000 + 2000
   debri_swing(scrollY, "debris")
-  debri_Oval(scrollY, "alien", width / 2, height / 2, 1200, 300 )
+  debri_Oval(scrollY, "alien", width / 2, height / 2, 1200, 300)
   debri_Oval(scrollY, "sun", 0, 0, 800, 900, 0.1 )
 }
 
-function debri_Oval(scrollY, className, x, y, w = 400, h = 400, speed = 1){
+function debri_Oval(scrollY, className, x, y, w, h, speed = 1){
   const debris = document.getElementsByClassName(className)
   const cos = Math.cos(scrollY * speed)
   const sin = Math.sin(scrollY * speed)
@@ -46,13 +46,10 @@ function debri_Oval(scrollY, className, x, y, w = 400, h = 400, speed = 1){
   }
 }
 
-function clickableDebris(){}
-
 function debri_swing(scrollY, className){
- 
   const debris = document.getElementsByClassName(className)
   for(let i = 0 ; i < debris.length; i ++){
-    let top = window.innerHeight - (scrollY/18) ** 1.5
+    let top = window.innerHeight - (scrollY) ** 1.5
     debris[i].style.top = top+"px"
     debris[i].style.left = scrollY+"px"
   }
